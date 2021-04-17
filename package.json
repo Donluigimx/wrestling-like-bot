@@ -1,0 +1,28 @@
+{
+  "name": "wrestling-like-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc -w src/app.ts",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+  },
+  "author": "donluigimx",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.5.0",
+    "@types/node": "^14.14.41",
+    "@types/pino": "^6.3.7",
+    "@types/redis": "^2.8.28",
+    "discord.js": "^12.5.3",
+    "ffmpeg-static": "^4.3.0",
+    "pino": "^6.11.3",
+    "redis": "^3.1.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.24.0",
+    "typescript": "^4.2.4"
+  }
+}
