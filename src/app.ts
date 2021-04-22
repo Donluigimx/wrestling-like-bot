@@ -1,10 +1,12 @@
-import { Client, Message } from 'discord.js';
+import { Client, Message, VoiceState } from 'discord.js';
 import Assert from 'assert';
 
 import { Logger, getUniqueLogger } from './lib/logger';
 
 import AssignCommand from './commands/assign';
 import DebugCommand from './commands/debug';
+
+import UserConnectedAction from './actions/user-connected';
 
 Assert.ok(process.env.DISCORD_TOKEN, 'DISCORD_TOKEN is a required environment variable');
 Assert.ok(process.env.DISCORD_BOT_ID, 'DISCORD_BOT_ID is a required environment variable');
@@ -47,4 +49,30 @@ client.on('message', async function(message: Message){
   default:
     break;
   }
+});
+
+client.on('voiceStateUpdate', async function(oldState: VoiceState, newState: VoiceState){
+  const logger = getUniqueLogger();
+  let action: string;
+
+  if (!oldState.channelID && newState.channelID) {
+    action = 'user_connected';
+  }
+  if (oldState.channelID && !newState.channelID) {
+    action = 'user_disconnected';
+  }
+
+  switch (action) {
+  case 'user_connected':
+    await UserConnectedAction(
+      newState.member.id,
+      newState.guild.id,
+      newState.channel
+    );
+    break;
+
+  default:
+    break;
+  }
+  logger.info({ oldState, newState });
 });
