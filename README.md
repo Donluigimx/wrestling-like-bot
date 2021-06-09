@@ -31,8 +31,6 @@ Example:
 !wlb assign https://www.youtube.com/watch?v=dQw4w9WgXcQ 42s 9s
 ```
 
-```
-
 ### Debug
 
 This command will print data stored in redis for debugging purpose
