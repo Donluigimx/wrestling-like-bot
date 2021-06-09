@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc -w src/app.ts",
+    "dev": "tsc -w --esModuleInterop src/app.ts",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "author": "donluigimx",
