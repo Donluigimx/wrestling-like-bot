@@ -20,7 +20,7 @@ async function userConnected(userId: string, serverId: string, channel: VoiceCha
   const audioFormats = Ytdl.filterFormats(info.formats, 'audioonly');
 
   connection.play(
-    Ytdl(response.url, { begin: response.starts, format: audioFormats[0] }),
+    Ytdl(response.url, { format: audioFormats[0] }),
     { seek: Duration(response.starts) / 1000 }
   );
 

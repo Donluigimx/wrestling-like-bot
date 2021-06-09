@@ -1,8 +1,9 @@
 import { Logger } from 'pino';
 import Crypto from 'crypto';
+import Duration from 'parse-duration';
 
 import Database from '../lib/db';
-import { DMChannel, NewsChannel, TextChannel } from 'discord.js';
+import { DMChannel, NewsChannel, TextChannel, MessageEmbed } from 'discord.js';
 
 interface AssignPayload {
   url: string,
@@ -17,6 +18,17 @@ async function assign(payload: AssignPayload, channel: TextChannel | DMChannel |
 
   const hash: string = Crypto.createHash('md5').update(`${payload.user_id}${payload.server_id}`).digest('hex');
 
+  if (Duration(payload.audio_length) > 10000) {
+    const embedError: MessageEmbed = new MessageEmbed()
+    .setColor('#B22222')
+    .setTitle('Error')
+    .setDescription('Audio Length can not be higher of 10 seconds');
+
+    await channel.send(embedError);
+
+    return;
+  }
+
   const response: string = await new Promise<string>((resolve, reject) => {
     Database.set(hash, JSON.stringify(payload), (err, reply) => {
       if (err) {reject(err);}
@@ -26,7 +38,11 @@ async function assign(payload: AssignPayload, channel: TextChannel | DMChannel |
 
   logger.info({ response });
 
-  await channel.send('Song assigned ;)');
+  const embedResponse: MessageEmbed = new MessageEmbed()
+  .setColor('#00FFFF')
+  .setDescription('Song assigned');
+
+  await channel.send(embedResponse);
   return;
 }
 

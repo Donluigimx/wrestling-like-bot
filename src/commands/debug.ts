@@ -8,11 +8,11 @@ async function debug(userId: string, serverId: string, textChannel: TextChannel 
   const response: string = await new Promise<string>((resolve, reject) => {
     Database.get(hash, (err, reply) => {
       if (err) {reject(err);}
-      resolve(reply);
+      resolve(JSON.parse(reply));
     });
   });
 
-  await textChannel.send(response);
+  await textChannel.send(`${'```json\n'}${JSON.stringify(response, null, 2)}${'```'}`);
 
   return;
 }

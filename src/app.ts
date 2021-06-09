@@ -55,6 +55,8 @@ client.on('voiceStateUpdate', async function(oldState: VoiceState, newState: Voi
   const logger = getUniqueLogger();
   let action: string;
 
+  logger.info({ oldState, newState });
+
   if (!oldState.channelID && newState.channelID) {
     action = 'user_connected';
   }
@@ -74,5 +76,4 @@ client.on('voiceStateUpdate', async function(oldState: VoiceState, newState: Voi
   default:
     break;
   }
-  logger.info({ oldState, newState });
 });
