@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc -w --esModuleInterop src/app.ts",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "build": "tsc"
+  },
+  "engines": {
+    "node": "14.16.1"
   },
   "author": "donluigimx",
   "license": "ISC",
