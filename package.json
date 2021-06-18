@@ -10,6 +10,18 @@
   "engines": {
     "node": "14.16.1"
   },
+  "release": {
+    "plugins": [
+      ["@semantic-release/commit-analyzer", {
+        "preset": "angular",
+        "releaseRules": [
+          { "type": "refactor", "release": "patch" }
+        ]
+      }],
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github"
+    ]
+  },
   "author": "donluigimx",
   "license": "ISC",
   "dependencies": {
