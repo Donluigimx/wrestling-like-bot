@@ -17,8 +17,6 @@ jobs:
         run: yarn
       - name: Build App
         run: yarn build
-      - name: Remove source
-        run: rm -r src
       - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
