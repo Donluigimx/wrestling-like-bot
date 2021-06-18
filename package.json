@@ -15,7 +15,8 @@
       ["@semantic-release/commit-analyzer", {
         "preset": "angular",
         "releaseRules": [
-          { "type": "refactor", "release": "patch" }
+          { "type": "refactor", "release": "patch" },
+          { "type": "infra", "release": "patch" }
         ]
       }],
       "@semantic-release/release-notes-generator",
