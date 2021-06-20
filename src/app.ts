@@ -1,3 +1,4 @@
+import Http from 'http';
 import { Client, Message, VoiceState } from 'discord.js';
 import Assert from 'assert';
 
@@ -77,3 +78,13 @@ client.on('voiceStateUpdate', async function(oldState: VoiceState, newState: Voi
     break;
   }
 });
+
+const requestListener: Http.RequestListener = (req, res) => {
+  res.writeHead(200);
+  res.end();
+};
+
+const httpServer: Http.Server = Http.createServer(requestListener);
+const port: string = process.env.PORT || '8080';
+
+httpServer.listen(port);
