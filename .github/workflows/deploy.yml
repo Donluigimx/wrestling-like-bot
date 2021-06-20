@@ -18,7 +18,8 @@ jobs:
       - name: Remove source
         run: rm -r src
       - name: Deploy to heroku
-        uses: behe/heroku-build@v1
+        uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          app-name: "wrestling-like-bot"
-          api-key: ${{ secrets.HEROKU_KEY }}
+          heroku_app_name: 'wrestling-like-bot'
+          heroku_api_key: ${{ secrets.HEROKU_KEY }}
+          heroku_email: 'luigi.lahi@gmail.com'
