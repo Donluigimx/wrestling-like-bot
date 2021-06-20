@@ -1,4 +1,4 @@
-name: Release
+name: Heroku Health
 on:
   schedule:
     - cron: "*/30 * * * *"
