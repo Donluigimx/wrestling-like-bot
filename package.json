@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "build": "tsc"
+    "start": "node dist/app.js",
+    "build": "tsc",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "engines": {
     "node": "14.16.1"
