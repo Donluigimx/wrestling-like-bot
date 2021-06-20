@@ -1,5 +1,10 @@
 name: Deploy
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Tag to be deployed
+        required: true
 
 jobs:
   deploy:
@@ -7,6 +12,8 @@ jobs:
     steps:
       - name: Checkout project
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.tag }}
       - name: Deploy to heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
