@@ -13,13 +13,22 @@
   },
   "release": {
     "plugins": [
-      ["@semantic-release/commit-analyzer", {
-        "preset": "angular",
-        "releaseRules": [
-          { "type": "refactor", "release": "patch" },
-          { "type": "infra", "release": "patch" }
-        ]
-      }],
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "angular",
+          "releaseRules": [
+            {
+              "type": "refactor",
+              "release": "patch"
+            },
+            {
+              "type": "infra",
+              "release": "patch"
+            }
+          ]
+        }
+      ],
       "@semantic-release/release-notes-generator",
       "@semantic-release/github"
     ]
@@ -36,7 +45,7 @@
     "parse-duration": "^1.0.0",
     "pino": "^6.11.3",
     "redis": "^3.1.1",
-    "ytdl-core": "^4.5.0"
+    "ytdl-core": "^4.8.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.22.0",
