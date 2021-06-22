@@ -6,11 +6,12 @@ import Database from '../lib/db';
 async function remove(userId: string, serverId: string, textChannel: TextChannel | DMChannel | NewsChannel): Promise<void> {
   const hash: string = Crypto.createHash('md5').update(`${userId}${serverId}`).digest('hex');
   try {
-    await new Promise<string>((_, reject) => {
+    await new Promise<string>((resolve, reject) => {
       Database.del(hash, (err) => {
         if (err) {
           reject(err);
         }
+        resolve(null);
       });
     });
   } catch (error) {

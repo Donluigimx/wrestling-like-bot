@@ -30,6 +30,8 @@ client.on('message', async function(message: Message){
 
   const [ , command, ...args ] = result;
 
+  logger.info({ command, args }, 'Command');
+
   switch (command) {
   case 'assign':
     await AssignCommand(
