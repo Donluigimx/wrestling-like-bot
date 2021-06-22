@@ -6,6 +6,7 @@ import { Logger, getUniqueLogger } from './lib/logger';
 
 import AssignCommand from './commands/assign';
 import DebugCommand from './commands/debug';
+import RemoveCommand from './commands/remove';
 
 import UserConnectedAction from './actions/user-connected';
 
@@ -46,6 +47,9 @@ client.on('message', async function(message: Message){
 
   case 'debug':
     await DebugCommand(message.author.id, message.guild.id, message.channel);
+    break;
+  case 'remove':
+    await RemoveCommand(message.author.id, message.guild.id, message.channel);
     break;
   default:
     break;
