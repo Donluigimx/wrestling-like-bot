@@ -15,7 +15,7 @@ async function userConnected(userId: string, serverId: string, channel: VoiceCha
     response  = await new Promise<AssignPayload>((resolve, reject) => {
       Database.get(hash, (err, reply) => {
         if (err) {reject(err);}
-        logger.info({ reply, error }, 'Response from redis');
+        logger.info({ reply, err }, 'Response from redis');
         resolve(JSON.parse(reply));
       });
     });
