@@ -76,7 +76,8 @@ client.on('voiceStateUpdate', async function(oldState: VoiceState, newState: Voi
     await UserConnectedAction(
       newState.member.id,
       newState.guild.id,
-      newState.channel
+      newState.channel,
+      logger.child({ action })
     );
     break;
 
