@@ -26,7 +26,9 @@ client.on('message', async function(message: Message){
 
   const result: RegExpExecArray = /^!wlb\s(assign|remove|debug)(?:\s([^\s]+))?(?:\s([^\s]+))?(?:\s([^\s]+))?$/g.exec(message.content);
 
-  if (!result) {return;}
+  if (!result) {
+    return;
+  }
 
   const [ , command, ...args ] = result;
 
