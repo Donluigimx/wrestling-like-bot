@@ -22,13 +22,13 @@ npx ts-node src/app.ts
 
 ### Assign
 
-```bash
+```
 !wlb asssign [youtube_url] [starts?] [length?]
 ```
 
 Example:
 
-```bash
+```
 !wlb assign https://www.youtube.com/watch?v=dQw4w9WgXcQ 42s 9s
 ```
 
@@ -36,6 +36,6 @@ Example:
 
 This command will print data stored in redis for debugging purpose
 
-```bash
+```
 !wlb debug
 ```
