@@ -1,4 +1,5 @@
 # Wrestling-Like Bot
+[![Heroku Health](https://github.com/Donluigimx/wrestling-like-bot/actions/workflows/heroku_health.yml/badge.svg)](https://github.com/Donluigimx/wrestling-like-bot/actions/workflows/heroku_health.yml)
 
 ## Development
 
