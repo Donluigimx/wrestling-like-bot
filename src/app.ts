@@ -16,6 +16,7 @@ Assert.ok(process.env.DISCORD_BOT_ID, 'DISCORD_BOT_ID is a required environment 
 const client = new Client();
 
 client.login(process.env.DISCORD_TOKEN);
+
 Logger.info('Bot running');
 
 client.on('message', async function(message: Message){
