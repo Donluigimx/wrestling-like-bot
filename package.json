@@ -9,7 +9,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "engines": {
-    "node": "14.16.1"
+    "node": "16.16.0"
   },
   "release": {
     "plugins": [
